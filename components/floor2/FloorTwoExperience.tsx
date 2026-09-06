@@ -50,26 +50,18 @@ export default function FloorTwoExperience() {
           padding: "0 6vw",
         }}
       >
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-sans text-xs tracking-hud text-mist/50"
-        >
-          FLOOR 2 · A CREATIVITY FRAMEWORK
-        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-5 font-display text-[clamp(2.2rem,7vw,5rem)] font-medium leading-[1.05] text-mist"
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-[clamp(2.2rem,7vw,5rem)] font-medium leading-[1.05] text-mist"
         >
           The Zoom Effect
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-xl font-sans text-sm leading-relaxed text-mist/65 sm:text-base"
         >
           Five inventors who solved a problem by zooming into a tiny detail, zooming out to

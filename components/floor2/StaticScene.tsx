@@ -14,8 +14,17 @@ export default function StaticScene({ scene }: { scene: FloorTwoScene }) {
       aria-label={`${scene.person} — ${scene.kicker}`}
       style={{ background: scene.palette.bg, padding: "5rem 6vw" }}
     >
-      <p className="text-center font-sans text-xs tracking-hud" style={{ color: scene.palette.accent, opacity: 0.75 }}>
-        SCENE {String(scene.index).padStart(2, "0")} · {scene.person.toUpperCase()}
+      <h2
+        className="text-center font-display text-[clamp(1.6rem,4vw,2.4rem)] font-medium"
+        style={{ color: scene.palette.accent }}
+      >
+        {scene.person}
+      </h2>
+      <p
+        className="mx-auto mt-2 max-w-md text-center font-sans text-sm leading-relaxed"
+        style={{ color: scene.palette.accent, opacity: 0.65 }}
+      >
+        {scene.kicker}
       </p>
 
       <div

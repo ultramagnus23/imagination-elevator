@@ -54,8 +54,7 @@ export default function EndCard() {
       </div>
 
       <div>
-        <p className="font-sans text-xs tracking-hud text-mist/50">FLOOR 2 · CREATIVITY FRAMEWORK</p>
-        <h2 className="mt-4 font-display text-[clamp(1.8rem,5vw,3.5rem)] font-medium text-mist">
+        <h2 className="font-display text-[clamp(1.8rem,5vw,3.5rem)] font-medium text-mist">
           THE ZOOM CYCLE
         </h2>
         <p className="mt-2 font-display text-[clamp(1.4rem,3.4vw,2.2rem)] italic text-mist/80">

@@ -97,26 +97,6 @@ export default function ZoomScene({
           </div>
         </motion.div>
 
-        {/* scene index + person kicker, always visible */}
-        <div
-          style={{
-            position: "absolute",
-            top: "clamp(64px, 12vh, 96px)",
-            left: 0,
-            right: 0,
-            display: "flex",
-            justifyContent: "center",
-            pointerEvents: "none",
-          }}
-        >
-          <span
-            className="font-sans text-xs tracking-hud"
-            style={{ color: scene.palette.accent, opacity: 0.75 }}
-          >
-            SCENE {String(scene.index).padStart(2, "0")} · {scene.person.toUpperCase()}
-          </span>
-        </div>
-
         {/* phase captions */}
         <div
           style={{

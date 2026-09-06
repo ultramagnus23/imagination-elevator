@@ -21,7 +21,7 @@ export function DellArt({ progress, accent, accentSoft }: { progress: MotionValu
   return (
     <svg viewBox="0 0 400 400" style={stage} fill="none">
       {/* A: circuit board macro */}
-      <motion.g style={{ opacity: a }} stroke={accent} strokeWidth={2}>
+      <motion.g style={{ opacity: a }} stroke={accent} strokeWidth={3}>
         {[80, 140, 200, 260, 320].map((y) => (
           <line key={y} x1={40} y1={y} x2={360} y2={y} opacity={0.35} />
         ))}
@@ -69,7 +69,7 @@ export function MarsArt({ progress, accent, accentSoft }: { progress: MotionValu
     <svg viewBox="0 0 400 400" style={stage} fill="none">
       <motion.g style={{ opacity: a }}>
         {dots.map(([x, y], i) => (
-          <circle key={i} cx={x} cy={y} r={26} fill={accentSoft} stroke={accent} strokeWidth={2} />
+          <circle key={i} cx={x} cy={y} r={26} fill={accentSoft} stroke={accent} strokeWidth={3} />
         ))}
       </motion.g>
 
@@ -147,7 +147,7 @@ export function HullArt({ progress, accent, accentSoft }: { progress: MotionValu
       <motion.g style={{ opacity: a }}>
         <path d="M120 260 Q200 300 280 260 L280 280 Q200 320 120 280 Z" fill={accentSoft} />
         {[160, 200, 240].map((x, i) => (
-          <line key={i} x1={x} y1={100} x2={x - 20} y2={250} stroke={accent} strokeWidth={2} opacity={0.7} />
+          <line key={i} x1={x} y1={100} x2={x - 20} y2={250} stroke={accent} strokeWidth={3} opacity={0.7} />
         ))}
         <circle cx={200} cy={90} r={10} fill={accent} />
       </motion.g>
@@ -161,7 +161,7 @@ export function HullArt({ progress, accent, accentSoft }: { progress: MotionValu
         <path d="M320 180 l-30 8 M320 180 l-30 -8 M290 180 h30" />
       </motion.g>
 
-      <motion.g style={{ opacity: c }} stroke={accent} strokeWidth={2}>
+      <motion.g style={{ opacity: c }} stroke={accent} strokeWidth={3}>
         {Array.from({ length: 9 }).map((_, i) => {
           const y = 300 - i * 20;
           const w = 140 - i * 8;
