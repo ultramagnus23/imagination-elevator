@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self-hosted via npm (no external font fetch at build or runtime) */
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600-italic.css";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+
+:root {
+  --font-fraunces: "Fraunces", Georgia, serif;
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  background: oklch(9% 0.015 260);
+  color: oklch(94% 0.005 260);
+  font-family: var(--font-space-grotesk);
+  -webkit-font-smoothing: antialiased;
+}
+
+canvas {
+  touch-action: none;
+  outline: none;
+}
+
+/* Visible keyboard focus everywhere — no invisible-focus buttons */
+:focus-visible {
+  outline: 2px solid oklch(93% 0.015 250);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: oklch(45% 0.19 275 / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
