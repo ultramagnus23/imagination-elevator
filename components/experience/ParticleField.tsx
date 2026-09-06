@@ -2,19 +2,10 @@
 
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Text } from "@react-three/drei";
-import * as THREE from "three";
-import { Group } from "three";
+import { Group, InstancedMesh, Object3D } from "three";
 import { ParticleTheme } from "@/lib/types";
 
-const GLYPHS: Record<ParticleTheme, string[]> = {
-  music: ["♪", "♫", "♩", "♬"],
-  economics: ["%", "+", "Σ", "π", "$"],
-  merged: ["♪", "♫", "%", "Σ", "♩", "+"],
-};
-
-interface Particle {
-  glyph: string;
+interface Mote {
   radius: number;
   angle: number;
   height: number;
@@ -22,27 +13,28 @@ interface Particle {
   scale: number;
 }
 
-function makeParticles(theme: ParticleTheme, count: number, seed: number): Particle[] {
-  const glyphs = GLYPHS[theme];
-  const particles: Particle[] = [];
+function makeMotes(count: number, seed: number): Mote[] {
+  const motes: Mote[] = [];
   for (let i = 0; i < count; i++) {
     // Cheap deterministic pseudo-random so server/client agree and re-renders are stable.
     const r = (n: number) => {
       const x = Math.sin(seed * 999 + n * 57.13) * 10000;
       return x - Math.floor(x);
     };
-    particles.push({
-      glyph: glyphs[i % glyphs.length],
+    motes.push({
       radius: 1.4 + r(i) * 2.2,
       angle: r(i + 10) * Math.PI * 2,
       height: 1.4 + r(i + 20) * 2.6,
       speed: 0.15 + r(i + 30) * 0.25,
-      scale: 0.35 + r(i + 40) * 0.35,
+      scale: 0.02 + r(i + 40) * 0.025,
     });
   }
-  return particles;
+  return motes;
 }
 
+/** Ambient drifting light motes — ties a milestone's air together without
+ * standing in for content. The theme's actual meaning now lives in real
+ * environment geometry (piano, graph wall, books), not in floating glyphs. */
 export default function ParticleField({
   theme,
   color,
@@ -59,40 +51,44 @@ export default function ParticleField({
   seed?: number;
 }) {
   const groupRef = useRef<Group>(null);
-  const particles = useMemo(() => makeParticles(theme, count, seed), [theme, count, seed]);
+  const meshRef = useRef<InstancedMesh>(null);
+  const dummy = useMemo(() => new Object3D(), []);
+  const motes = useMemo(() => makeMotes(count, seed), [count, seed]);
   const activeColor = muted ? mutedColor ?? "#9a9a9e" : color;
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
-    const group = groupRef.current;
-    if (!group) return;
-    group.children.forEach((child, i) => {
-      const p = particles[i];
-      if (!p) return;
+    const mesh = meshRef.current;
+    if (!mesh) return;
+    motes.forEach((p, i) => {
       const angle = p.angle + t * p.speed;
-      child.position.set(
+      dummy.position.set(
         Math.cos(angle) * p.radius,
         p.height + Math.sin(t * p.speed * 2 + i) * 0.25,
         Math.sin(angle) * p.radius
       );
-      child.rotation.y = -angle;
+      dummy.scale.setScalar(p.scale);
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i, dummy.matrix);
     });
+    mesh.instanceMatrix.needsUpdate = true;
   });
+
+  // theme reserved for future per-universe mote variation (density, drift character)
+  void theme;
 
   return (
     <group ref={groupRef}>
-      {particles.map((p, i) => (
-        <Text
-          key={i}
-          fontSize={p.scale}
+      <instancedMesh ref={meshRef} args={[undefined, undefined, motes.length]}>
+        <sphereGeometry args={[1, 8, 8]} />
+        <meshStandardMaterial
           color={activeColor}
-          anchorX="center"
-          anchorY="middle"
-          fillOpacity={muted ? 0.5 : 0.85}
-        >
-          {p.glyph}
-        </Text>
-      ))}
+          emissive={activeColor}
+          emissiveIntensity={1.4}
+          transparent
+          opacity={muted ? 0.35 : 0.7}
+        />
+      </instancedMesh>
     </group>
   );
 }

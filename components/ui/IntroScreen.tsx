@@ -34,7 +34,7 @@ export default function IntroScreen() {
       <p className="mb-4 font-sans text-xs uppercase tracking-hud text-mist/60">
         A walk through three lives that could have been
       </p>
-      <h1 className="max-w-2xl font-display text-4xl font-medium leading-tight text-mist sm:text-6xl">
+      <h1 className="max-w-2xl font-display text-4xl font-medium leading-tight tracking-tight text-mist sm:text-6xl">
         The Imagination Elevator
       </h1>
       <p className="mt-6 max-w-md font-sans text-sm leading-relaxed text-mist/70">
@@ -57,7 +57,7 @@ export default function IntroScreen() {
       </button>
 
       <p className="mt-10 font-sans text-[11px] tracking-hud text-mist/35">
-        DRAG TO LOOK · ARROW KEYS TO WALK A TIMELINE · CLICK A DOOR TO ENTER
+        DRAG TO LOOK · SCROLL TO WALK A TIMELINE · CLICK A DOOR TO ENTER
       </p>
 
       <Link

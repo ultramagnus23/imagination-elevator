@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useElevatorStore } from "@/lib/store";
 import { UNIVERSES } from "@/lib/universes";
@@ -10,6 +10,37 @@ import FinaleComparison from "./FinaleComparison";
 import Overlay from "@/components/ui/Overlay";
 import IntroScreen from "@/components/ui/IntroScreen";
 import AudioEngine from "@/components/audio/AudioEngine";
+
+/** Wheel/trackpad scroll snaps one milestone at a time — the primary way to
+ * walk a universe's timeline. A cooldown makes one gesture = one step,
+ * instead of a single fast swipe firing through several milestones. */
+function ScrollNav() {
+  const scene = useElevatorStore((s) => s.scene);
+  const next = useElevatorStore((s) => s.next);
+  const prev = useElevatorStore((s) => s.prev);
+  const cooldownUntil = useRef(0);
+
+  useEffect(() => {
+    const isUniverse =
+      scene === "universe-1" || scene === "universe-2" || scene === "universe-3";
+    if (!isUniverse) return;
+
+    function onWheel(e: WheelEvent) {
+      e.preventDefault();
+      const now = performance.now();
+      if (now < cooldownUntil.current) return;
+      if (Math.abs(e.deltaY) < 4) return;
+      cooldownUntil.current = now + 550;
+      if (e.deltaY > 0) next();
+      else prev();
+    }
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, [scene, next, prev]);
+
+  return null;
+}
 
 function KeyboardNav() {
   const scene = useElevatorStore((s) => s.scene);
@@ -73,6 +104,7 @@ export default function Experience() {
       {scene === "intro" && <IntroScreen />}
       <Overlay />
       <KeyboardNav />
+      <ScrollNav />
       <AudioEngine />
     </div>
   );
