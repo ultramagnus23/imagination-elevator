@@ -43,10 +43,3 @@ export const UNIVERSE_ORDER: UniverseId[] = [
   "universe-2",
   "universe-3",
 ];
-
-/** universe-3 and the finale render on a near-white background — everywhere
- * else is glow-on-void. Chrome text/borders switch from `mist` to `ink`
- * here so they stay readable instead of light-on-light. */
-export function isLightScene(scene: SceneId): boolean {
-  return scene === "universe-3" || scene === "finale";
-}

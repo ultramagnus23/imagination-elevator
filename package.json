@@ -9,26 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource/archivo": "^5.3.0",
-    "@fontsource/bodoni-moda": "^5.3.0",
-    "@react-three/drei": "9.108.4",
-    "@react-three/fiber": "8.16.8",
-    "framer-motion": "11.3.19",
     "next": "14.2.35",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "three": "0.160.1",
+    "@react-three/fiber": "8.16.8",
+    "@react-three/drei": "9.108.4",
+    "zustand": "4.5.4",
+    "framer-motion": "11.3.19",
     "tone": "14.9.17",
-    "zustand": "4.5.4"
+    "@fontsource/fraunces": "5.0.20",
+    "@fontsource/space-grotesk": "5.0.20"
   },
   "devDependencies": {
+    "typescript": "5.5.4",
     "@types/node": "20.14.15",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@types/three": "0.160.0",
     "autoprefixer": "10.4.20",
     "postcss": "8.4.41",
-    "tailwindcss": "3.4.10",
-    "typescript": "5.5.4"
+    "tailwindcss": "3.4.10"
   }
 }

@@ -5,7 +5,6 @@ import { UniverseConfig } from "@/lib/types";
 import { milestoneZ, MILESTONE_SPACING } from "@/lib/layout";
 import MilestonePlatform from "./MilestonePlatform";
 import CameraRig from "./CameraRig";
-import UniverseEnvironment from "./environment/UniverseEnvironment";
 
 function milestoneFlags(universeId: string, index: number) {
   if (universeId === "universe-1") return { muted: index === 5, moment: false };
@@ -55,12 +54,6 @@ export default function UniverseScene({
           {...milestoneFlags(config.id, i)}
         />
       ))}
-
-      <UniverseEnvironment
-        theme={config.particleTheme}
-        colors={config.colors}
-        walkwayLength={walkwayLength}
-      />
 
       <CameraRig milestoneIndex={milestoneIndex} />
     </>

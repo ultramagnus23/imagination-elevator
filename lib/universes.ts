@@ -14,40 +14,38 @@ export const UNIVERSES: Record<string, UniverseConfig> = {
     particleTheme: "music",
     milestones: [
       {
-        age: "Age 5",
-        title: "First Piano Lesson",
-        location: "Child's bedroom, a small upright piano",
+        age: "Age 3",
+        title: "First Sound at the Piano",
+        location: "The living room, an old upright piano",
         description:
-          "Small hands find a C-major scale for the first time. Nothing sounds right yet, and none of it needs to.",
+          "No lesson yet, just a small hand pressing a key to hear what happens, then doing it again.",
       },
       {
-        age: "Age 8",
-        title: "First Recital",
-        location: "A recital stage, one spotlight",
-        description:
-          "Nervous, focused, and all the way through the piece without stopping. The applause feels enormous.",
+        age: "Age 6",
+        title: "First Piano Lessons",
+        location: "A teacher's front room, a metronome ticking",
+        description: "Scales, for real this time. Nothing sounds right yet, and none of it needs to.",
       },
       {
-        age: "Age 10",
-        title: "Daily Practice",
-        location: "A practice room papered in sheet music",
-        description:
-          "Eight hours a day. The clock spins fast when the hands are moving faster than the mind can follow.",
+        age: "Age 9",
+        title: "Joins the Junior Music League",
+        location: "A community hall, a row of young performers",
+        description: "First taste of playing alongside other serious kids, and of being taken seriously.",
       },
       {
-        age: "Age 13",
-        title: "First National Competition",
-        location: "A competition hall, full house",
-        description: "Perfect technique. A win that took a decade to look effortless.",
+        age: "Age 12",
+        title: "Selected for the National Music League",
+        location: "A national audition hall",
+        description: "A callback nobody in the family expected. The technique has become undeniable.",
       },
       {
-        age: "Age 18",
-        title: "National Ranking",
+        age: "Age 15",
+        title: "Solo Recital Circuit",
         location: "A concert hall, hundreds watching",
-        description: "A flawless performance, and a name that starts to travel ahead of the person carrying it.",
+        description: "Touring small recitals, flawless each time. A name starting to travel ahead of the person carrying it.",
       },
       {
-        age: "Age 20 — Present",
+        age: "Age 17 — Present",
         title: "Excellence. But No Creation.",
         location: "A studio, alone with an instrument",
         description:
@@ -70,38 +68,38 @@ export const UNIVERSES: Record<string, UniverseConfig> = {
     particleTheme: "economics",
     milestones: [
       {
-        age: "Age 12",
-        title: "Discovery of Economics",
-        location: "The library, a textbook left open too long",
-        description: "Eyes wide, the kind of wonder that usually gets spent on something else at twelve.",
+        age: "Age 6",
+        title: "First Book on Economics",
+        location: "A bedroom shelf, a book borrowed and never returned",
+        description: "A picture-book explanation of trade and money. Eyes wide, the kind of wonder that usually gets spent on something else at six.",
       },
       {
-        age: "Age 14",
+        age: "Age 8",
+        title: "A Second Book, a Bigger Question",
+        location: "The library, a thicker book this time",
+        description: "Prices, markets, why things cost what they cost. The questions start outrunning the answers in the book.",
+      },
+      {
+        age: "Age 10",
         title: "Understanding Compound Interest",
         location: "A classroom, a whiteboard full of curves",
         description: "A number doubles, then doubles again. Something about the shape of growth clicks into place.",
         cue: "1 → 2 → 4 → 8 → 16 → 32 — the curve keeps bending upward.",
       },
       {
-        age: "Age 15",
-        title: "Writing Academic Papers",
-        location: "A research room, papers everywhere",
-        description: "Typing fast, chasing a dataset that keeps almost making sense.",
+        age: "Age 12",
+        title: "The Economics Olympiad",
+        location: "An exam hall, a country's worth of competitors",
+        description: "A medal that turns a private obsession into a credential.",
       },
       {
-        age: "Age 17",
+        age: "Age 15",
         title: "Academic Recognition",
         location: "A university hall, a room full of professors",
         description: "Explaining a system to people who built their careers on smaller versions of it.",
       },
       {
-        age: "Age 19",
-        title: "Scholarships and Brilliance",
-        location: "A scholarship ceremony, formal applause",
-        description: "Recognition, handshake, photograph. Sterile, correct, and a little hollow.",
-      },
-      {
-        age: "Age 20 — Present",
+        age: "Age 17 — Present",
         title: "Perfect Essays. Perfect Logic. No Life.",
         location: "A desk, a cursor blinking at the end of a flawless paragraph",
         description:
@@ -124,19 +122,19 @@ export const UNIVERSES: Record<string, UniverseConfig> = {
     particleTheme: "merged",
     milestones: [
       {
-        age: "Ages 5–12",
+        age: "Ages 3–9",
         title: "Two Passions Developing",
-        location: "A child's room — a piano on one side, a shelf of textbooks on the other",
-        description: "Piano, then the book, then the piano again. Neither one crowds the other out.",
+        location: "A child's room — a piano on one side, a shelf of books on the other",
+        description: "Piano, then a book about money, then the piano again. Neither one crowds the other out.",
+      },
+      {
+        age: "Ages 10–12",
+        title: "Both Passions Growing",
+        location: "One room, doing double duty as studio and study",
+        description: "The National Music League and the Economics Olympiad, the same year. Hours of both, back to back.",
       },
       {
         age: "Age 13",
-        title: "Both Passions Growing",
-        location: "One room, doing double duty as studio and study",
-        description: "Hours of both, back to back, switching without ceremony.",
-      },
-      {
-        age: "Age 15",
         title: "The Discovery",
         location: "The practice room, mid-phrase",
         description:
@@ -144,19 +142,19 @@ export const UNIVERSES: Record<string, UniverseConfig> = {
         cue: "Each note builds on the last. Each practice builds exponentially. Music is compound interest. I am compound interest.",
       },
       {
-        age: "Ages 16–18",
+        age: "Ages 14–15",
         title: "Creating Something New",
         location: "A space that is half studio, half desk",
         description: "Original composition, structured on a growth curve. The sheet music and the spreadsheet start to look like the same object.",
       },
       {
-        age: "Age 19",
+        age: "Age 16",
         title: "The Intersection",
         location: "A presentation hall",
         description: "A composition and an economic analysis, side by side, and one explanation for both.",
       },
       {
-        age: "Age 20 — Present",
+        age: "Age 17 — Present",
         title: "X + Y = Something That Doesn't Exist Anywhere Else",
         location: "A creative studio — piano visible, papers visible, both equally at home",
         description:
